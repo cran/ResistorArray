@@ -1,0 +1,89 @@
+\name{cube}
+\alias{cube}
+\alias{tetrahedron}
+\alias{octahedron}
+\alias{dodecahedron}
+\alias{icosahedron}
+\alias{Wheatstone}
+\alias{Wheatstone}
+\title{Specimen conductance matrices}
+\description{
+Various conductance matrices for simple resistor configurations
+}
+\usage{
+cube(x=1)
+octahedron(x=1)
+tetrahedron(x=1)
+dodecahedron(x=1)
+icosahedron(x=1)
+}
+
+\arguments{
+
+  \item{x}{In \code{diamond()}, vector of five (positive) elements, each
+    of which specifies the \strong{resistance} of the five resistors in
+    the classic diamond resistor configuration: \code{r} is
+    \eqn{R_{12}}{R_12}, \eqn{R_{13}}{R_13}, \eqn{R_{23}}{R_23},
+    \eqn{R_{24}}{R_24}, and \eqn{R_{34}}{R_34} (in order).
+
+    In \code{cube()}, \code{x} is a vector of twelve elements (a scalar
+    argument is interpreted as the resistance of each resistor)
+    representing the twelve resistances of a skeleton cube.  In the
+    orientation described below, the elements of \code{x} correspond to
+    \eqn{R_{12}}{R_12}, \eqn{R_{14}}{R_14}, \eqn{R_{15}}{R_15},
+    \eqn{R_{23}}{R_23}, \eqn{R_{26}}{R_26}, \eqn{R_{34}}{R_34},
+    \eqn{R_{37}}{R_37}, \eqn{R_{48}}{R_48}, \eqn{R_{56}}{R_56},
+    \eqn{R_{58}}{R_58}, \eqn{R_{67}}{R_67}, \eqn{R_{78}}{R_78} (here
+    \eqn{R_{ij}}{R_ij} is the resistancd between node \eqn{i}{i}  and
+    \eqn{j}{j}).  The pattern is general: edges are ordered first by the
+    row number \eqn{i}{i}, then column number \eqn{j}{j}.
+
+In \code{octahedron()}, \code{x} is a vector of twelve elements (a
+scalar argument is interpreted as the resistance of each resistor)
+representing the twelve resistances of a skeleton octahedron.  If node 1
+is \dQuote{top} and node 6 is \dQuote{bottom}, the elements of \code{x}
+correspond to
+    \eqn{R_{12}}{R_12}, \eqn{R_{13}}{R_13}, \eqn{R_{14}}{R_14},
+    \eqn{R_{15}}{R_15}, \eqn{R_{23}}{R_23}, \eqn{R_{25}}{R_25},
+    \eqn{R_{26}}{R_26}, \eqn{R_{34}}{R_34}, \eqn{R_{36}}{R_36}, 
+    \eqn{R_{45}}{R_45}, \eqn{R_{46}}{R_46}, \eqn{R_{56}}{R_56}.
+
+    In \code{series()}, \code{x} is a vector of two elements
+    corresponding to the resistance of two resistors in series.  The
+    elements of \code{x} are \eqn{R_{12}}{R_12} and \eqn{R_{23}}{R_23}
+    respectively.   It is a \emph{very} instructive exercise to derive
+    \eqn{R=R_{12}+R_{23}}{R=R_12 + R_23} using matrices.
+    }
+}
+\details{
+  \code{cube()} returns an eight-by-eight conductancematrix for a skeleton
+  cube of 12 resistors.  Each row/column corresponds to one of the 8
+  vertices that are the electrical nodes of the compound resistor.
+
+  In one orientation, node 1 has position 000, node 2 position 001, node 3
+  position 101, node 4 position 100, node 5 position 010, node 6 position
+  011, node 7 position 111, and node 8 position 110.
+
+  To do a Wheatstone bridge, use \code{tetrahedron()} with one of the
+  resistances \code{Inf}. 
+  
+}
+\references{
+  F. J. van Steenwijk \dQuote{Equivalent resistors of polyhedral
+    resistive structures}, American Journal of Physics, 66(1), January
+  1988.
+  }  
+\author{Robin K. S. Hankin}
+\examples{
+
+ resistance(cube(),1,7)  #known to be 5/6 ohm
+ resistance(cube(),1,2)  #known to be 7/12 ohm
+
+ resistance(octahedron(),1,6) #known to be 1/2 ohm
+ resistance(octahedron(),1,5) #known to be 5/12 ohm
+
+ resistance(dodecahedron(),1,5) 
+
+}
+\keyword{array}
+
