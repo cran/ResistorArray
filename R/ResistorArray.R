@@ -35,7 +35,7 @@ function (L, v, currents = 0, give.internal = FALSE)
     I <- v
     I[] <- currents
     if (any(free.v)) {
-        v[free.v] <- -solve(D, crossprod(B, v.known))
+        v[free.v] <- solve(D, I[free.v] - crossprod(B, v.known))
     }
     I[fixed.v] <- crossprod(A, v.known) + B %*% v[free.v]
     out <- list(potentials = v, currents = I)
@@ -63,7 +63,7 @@ function (x = 1)
 "currents" <-
 function (L, earth.node, input.node) 
 {
-    edges <- which(L != 0 & row(L) < L, arr.ind = TRUE)
+    edges <- which(L != 0 & row(L) < col(L), arr.ind = TRUE)
     rownames(edges) <- NULL
     colnames(edges) <- c("from", "to")
     volts <- resistance(L, earth.node = earth.node, input.node = input.node, 
@@ -177,8 +177,9 @@ function (A, earth.node, input.node, current.input.vector = NULL,
     }
 }
 "series" <-
-function (n, x = 1) 
+function (x) 
 {
+    n <- length(x)
     out <- matrix(0, n + 1, n + 1)
     jj.series <- cbind(1:n, 2:(n + 1))
     out[jj.series] <- -1/x

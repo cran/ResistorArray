@@ -2,13 +2,13 @@
 \alias{circuit}
 \title{Mensurates a circuit given potentials of some nodes}
 \description{
-Given a conductance matrix and a vector of potentials or current input
-values at each node (\code{NA} being interpreted as \dQuote{unknown}),
-this function determines the potentials and currents over the whole
-circuit.  
+  Given a conductance matrix, a vector of potentials at each node, and a
+  vector of current inputs  at each node (\code{NA} being interpreted as
+  \dQuote{unknown}), this function determines the potentials and
+  currents over the whole circuit.  
 }
 \usage{
-circuit(L, v, currents=0, give.internal)
+circuit(L, v, currents=0, give.internal=FALSE)
 }
 \arguments{
   \item{L}{Conductance matrix}
@@ -16,14 +16,15 @@ circuit(L, v, currents=0, give.internal)
     matrix.   Elements with \code{NA} are interpreted
     as \dQuote{free} nodes, that is, nodes that are not kept at a fixed
     potential.  The potential of these nodes is well defined by the other
-    nodes in the problem}
+    nodes in the problem.  Note that such nodes will have known current
+    inputs (which may be zero but must be specified by argument
+    \code{currents}).}
   \item{currents}{Vector of currents fed into each node.  The only
-
     elements of this vector that are used are those that correspond to a
     node with free potential (use \code{NA} for nodes that are at a
     specified potential).  The idea is that each node has
     \strong{either} a specified voltage, \strong{or} a specified current
-    is fed into it; not both.
+    is fed into it; not both, and not neither.
 
     Observe that feeding zero current into a node at free potential is
     perfectly acceptable (and the usual case).}

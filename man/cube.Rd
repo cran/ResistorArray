@@ -9,6 +9,7 @@
 \title{Specimen conductance matrices}
 \description{
 Various conductance matrices for simple resistor configurations
+including a skeleton cube
 }
 \usage{
 cube(x=1)
@@ -20,11 +21,20 @@ icosahedron(x=1)
 
 \arguments{
 
-  \item{x}{In \code{diamond()}, vector of five (positive) elements, each
-    of which specifies the \strong{resistance} of the five resistors in
-    the classic diamond resistor configuration: \code{r} is
-    \eqn{R_{12}}{R_12}, \eqn{R_{13}}{R_13}, \eqn{R_{23}}{R_23},
-    \eqn{R_{24}}{R_24}, and \eqn{R_{34}}{R_34} (in order).
+  \item{x}{Reistance of each edge.  See details section for details.}
+
+}
+\details{
+  \code{cube()} returns an eight-by-eight conductancematrix for a skeleton
+  cube of 12 resistors.  Each row/column corresponds to one of the 8
+  vertices that are the electrical nodes of the compound resistor.
+
+  In one orientation, node 1 has position 000, node 2 position 001, node 3
+  position 101, node 4 position 100, node 5 position 010, node 6 position
+  011, node 7 position 111, and node 8 position 110.
+
+  To do a Wheatstone bridge, use \code{tetrahedron()} with one of the
+  resistances \code{Inf}.
 
     In \code{cube()}, \code{x} is a vector of twelve elements (a scalar
     argument is interpreted as the resistance of each resistor)
@@ -48,25 +58,7 @@ correspond to
     \eqn{R_{26}}{R_26}, \eqn{R_{34}}{R_34}, \eqn{R_{36}}{R_36}, 
     \eqn{R_{45}}{R_45}, \eqn{R_{46}}{R_46}, \eqn{R_{56}}{R_56}.
 
-    In \code{series()}, \code{x} is a vector of two elements
-    corresponding to the resistance of two resistors in series.  The
-    elements of \code{x} are \eqn{R_{12}}{R_12} and \eqn{R_{23}}{R_23}
-    respectively.   It is a \emph{very} instructive exercise to derive
-    \eqn{R=R_{12}+R_{23}}{R=R_12 + R_23} using matrices.
-    }
-}
-\details{
-  \code{cube()} returns an eight-by-eight conductancematrix for a skeleton
-  cube of 12 resistors.  Each row/column corresponds to one of the 8
-  vertices that are the electrical nodes of the compound resistor.
-
-  In one orientation, node 1 has position 000, node 2 position 001, node 3
-  position 101, node 4 position 100, node 5 position 010, node 6 position
-  011, node 7 position 111, and node 8 position 110.
-
-  To do a Wheatstone bridge, use \code{tetrahedron()} with one of the
-  resistances \code{Inf}. 
-  
+    }  
 }
 \references{
   F. J. van Steenwijk \dQuote{Equivalent resistors of polyhedral

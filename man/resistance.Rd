@@ -38,9 +38,12 @@ resistance(A, earth.node, input.node, current.input.vector=NULL, give.pots = FAL
 \author{Robin K. S. Hankin}
 \note{
   This function is essentially a newbie wrapper for \code{circuit()},
-  which solves a much more general problem.  This function, however, is
-  clearer and (possibly) faster; it also gives an explicit resistance if
-  \code{give.pots} is not set.
+  which solves a much more general problem.  The function documented
+  here, however, is clearer and (possibly) faster; it also gives an
+  explicit resistance if \code{give.pots} is not set.
+
+  Use function \code{currents()} (or \code{currents.matrix()}) to
+  calculate the currents flowing in the resistor array.  
   }
  
 \seealso{\code{\link{array.resistance}}}

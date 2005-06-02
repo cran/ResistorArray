@@ -5,10 +5,10 @@
   }
 \description{
 Given two points on a regular lattice of electrical nodes joined by unit
-resistors, returns either the resistance between the two points, or
-the potentials of each lattice point when unit current is fed into the
-first node, and the second is earthed.
-}
+resistors (as created by \code{makefullmatrix()}), returns the
+resistance between the two points, or (optionally) the potentials of
+each lattice point when unit current is fed into the first node, and the
+second is earthed.}
 \usage{
 array.resistance(x.offset, y.offset, rows.of.resistors, cols.of.resistors, give.pots = FALSE)
 }
