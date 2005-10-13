@@ -26,13 +26,13 @@ resistance(A, earth.node, input.node, current.input.vector=NULL, give.pots = FAL
   }
   \item{give.pots}{Boolean, with \code{TRUE} meaning to return the
   potential of each node (\code{out.node} being at zero potential);
-  \code{FALSE} means to return just the resistance between
+  and default \code{FALSE} meaning to return just the resistance between
   \code{in.node} and \code{out.node}.}
 }
 \details{
   The function's connection to resistor physics is quite opaque.
-  Consider Kirchoff's law, that the (algebraic) sum of currents into a
-  node is zero.  
+  It is effectively a matrix version of Kirchoff's law, that the
+  (algebraic) sum of currents into a node is zero.  
 }
 
 \author{Robin K. S. Hankin}

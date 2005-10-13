@@ -1,6 +1,5 @@
 \name{Wu}
 \alias{Wu}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{Wu's resistance matrix}
 \description{
   Returns a matrix \code{M} with \code{M[i,j]} is the resistance between
@@ -9,7 +8,6 @@
 \usage{
 Wu(L)
 }
-
 \arguments{
   \item{L}{Laplacian conductance matrix}
 }
@@ -38,7 +36,8 @@ Wu(cube())
 
 Wu(cube())[1,2] - resistance(cube(),1,2)
 
-Wu(series(7))
+Wu(series(1:7))  # observe how resistance between, say, nodes 2
+                 # and 5 is 9 (=2+3+4)
 
 }
 \keyword{array}

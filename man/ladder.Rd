@@ -4,7 +4,7 @@
 \description{
 Resistor network.  Consider node 1 to be Earth.  Nodes \eqn{2\ldots
   n}{2...n}  are each connected to node 1 by a resistor.  For
-\eqn{1<i<n}{1<i<n}, node \eqn{i} is connected to node \eqn{i+1}. 
+\eqn{1<i<n}, node \eqn{i} is connected to node \eqn{i+1}. 
 }
 \usage{
 ladder(n, x = 1, y = 1, z = NULL)

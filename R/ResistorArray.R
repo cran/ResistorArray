@@ -24,7 +24,7 @@ function (x.offset, y.offset, rows.of.resistors, cols.of.resistors,
     }
 }
 "circuit" <-
-function (L, v, currents = 0, give.internal = FALSE) 
+function (L, v, currents = 0, use.inverse = FALSE, give.internal = FALSE) 
 {
     free.v <- is.na(v)
     fixed.v <- !free.v
@@ -35,7 +35,11 @@ function (L, v, currents = 0, give.internal = FALSE)
     I <- v
     I[] <- currents
     if (any(free.v)) {
-        v[free.v] <- solve(D, I[free.v] - crossprod(B, v.known))
+      if(use.inverse){
+          v[free.v] <- crossprod(solve(D), I[free.v] - crossprod(B, v.known))
+      } else {
+          v[free.v] <- solve(D, I[free.v] - crossprod(B, v.known))
+      }
     }
     I[fixed.v] <- crossprod(A, v.known) + B %*% v[free.v]
     out <- list(potentials = v, currents = I)
@@ -156,8 +160,8 @@ function (a)
         10, 11, 11, 12, 11, 12, 12), ncol = 2))
 }
 "resistance" <-
-function (A, earth.node, input.node, current.input.vector = NULL, 
-    give.pots = FALSE) 
+function (A, earth.node, input.node, current.input.vector = NULL,
+           give.pots = FALSE) 
 {
     potentials <- rep(0, nrow(A))
     A <- A[-earth.node, -earth.node]
