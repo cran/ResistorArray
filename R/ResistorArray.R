@@ -216,3 +216,23 @@ function (L)
     })
     return(out)
 }
+
+"hypercube" <- function(n){
+
+  jj <- as.matrix(expand.grid(rep(list(0:1),n))) 
+  
+  wrapper <- function(x, y, my.fun) {
+    f <- function(x,y,tol=1e-4){
+      abs(sum(abs(jj[x,]-jj[y,]))-1)<tol
+    }
+    sapply(seq(along = x), FUN = function(i){f(x[i], y[i])})
+  }
+  
+  o <- -outer(1:(2^n),1:(2^n), wrapper, my.fun=f)
+  jj.names <- apply(jj,1,paste,collapse="")
+  rownames(o) <- jj.names
+  colnames(o) <- jj.names
+  diag(o) <- -apply(o,1,sum,na.rm=TRUE)
+  return(o)
+}
+

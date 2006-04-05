@@ -19,7 +19,7 @@ circuit(L, v, currents=0, use.inverse=FALSE, give.internal=FALSE)
     potential.  The potential of these nodes is well defined by the other
     nodes in the problem.  Note that such nodes must have
     current inputs (which may be zero) specified by argument
-    \code{currents}.}
+    \code{currents}}
   \item{currents}{Vector of currents fed into each node.  The only
     elements of this vector that are used are those that correspond to a
     node with free potential (use \code{NA} for nodes that are at a
@@ -28,7 +28,7 @@ circuit(L, v, currents=0, use.inverse=FALSE, give.internal=FALSE)
     is fed into it; not both, and not neither.
 
     Observe that feeding zero current into a node at free potential is
-    perfectly acceptable (and the usual case).}
+    perfectly acceptable (and the usual case)}
 \item{use.inverse}{Boolean, with default \code{FALSE} meaning to use
   \code{solve(A,b)} and \code{TRUE} meaning to use \code{solve(A)}, 
   thus incurring the penalty of evaluating a matrix inverse, which is
@@ -37,24 +37,22 @@ circuit(L, v, currents=0, use.inverse=FALSE, give.internal=FALSE)
   The default option should be faster most of the time, but YMMV}
   \item{give.internal}{Boolean, with \code{TRUE} meaning to return also
     a matrix showing the node-to-node currents, and default \code{FALSE}
-    meaning to omit this.}
+    meaning to omit this}
 }
 \value{
-
   Depending on the value of Boolean argument \code{give.internal},
-  returns  a list of either 2 or 4 elements:
+  return a list of either 2 or 4 elements:
   \itemize{
   \item{potentials}{A vector of potentials.  Note that the potentials of the
     nodes whose potential was specified by input argument \code{v}
     retain their original potentials; symbolically
-    \code{all(potentials[!is.na(v)] == v[!is.na(v)])}.}
+    \code{all(potentials[!is.na(v)] == v[!is.na(v)])}}
   \item{currents}{Vector of currents required to maintain the system
     with the potentials specified by input argument \code{v}}
-  \item{internal.currents}{
-    Matrix showing current flow from node to
+  \item{internal.currents}{Matrix showing current flow from node to
     node.  Element \code{[i,j]} shows current flow from node \code{i} to
     node \code{j}.  This and the next two elements only supplied if
-    argument \code{give.internal} is \code{TRUE}.}
+    argument \code{give.internal} is \code{TRUE}}
   \item{power}{The power dissipated at each edge}
   \item{total.power}{Total power dissipated over the resistor network}
   }

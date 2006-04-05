@@ -12,13 +12,15 @@ makefullmatrix(R, C)
   \item{C}{Number of columns of nodes}
 }
 \details{
-  Note that the array is toroidally connected.
+  Note that the array is toroidally connected.  Determine pairwise
+  resistances using function \code{array.resistance()}.
 }
 \value{
   Returns matrix of size \eqn{RC\times RC}{RC*RC}.  Note that this
   matrix is singular.
 }
 \author{Robin K. S. Hankin}
+\seealso{\code{\link{array.resistance}}}
 \examples{
 makefullmatrix(3,3)
 }

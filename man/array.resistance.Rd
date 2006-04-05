@@ -30,6 +30,7 @@ array.resistance(x.offset, y.offset, rows.of.resistors, cols.of.resistors, give.
 Note that the electrical network is effectively toroidal.
 }
 \author{Robin K. S. Hankin}
+\seealso{\code{\link{makefullmatrix}}}
 \examples{
 jj.approximate <-  array.resistance(1,2,15,17,give=FALSE)
 jj.exact <- 4/pi-1/2
