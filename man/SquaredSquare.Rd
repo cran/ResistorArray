@@ -1,5 +1,7 @@
 \name{SquaredSquare}
 \alias{SquaredSquare}
+\alias{squaredsquare}
+\alias{Squaredsquare}
 \docType{data}
 \title{A Squared square}
 \description{

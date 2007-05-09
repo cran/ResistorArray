@@ -19,7 +19,7 @@ dodecahedron(x=1)
 icosahedron(x=1)
 }
 \arguments{
-  \item{x}{Reistance of each edge.  See details section}
+  \item{x}{Resistance of each edge.  See details section}
 }
 \details{
   Function \code{cube()} returns an eight-by-eight conductance matrix
@@ -42,7 +42,7 @@ icosahedron(x=1)
   \eqn{R_{ij}}{R_ij} is the resistancd between node \eqn{i}{i}  and
   \eqn{j}{j}).  This series is obtainable by reading the rows given by
   \code{platonic("cube")}.  The pattern is general: edges are ordered
-  first by the row number \eqn{i}{i}, then column number \eqn{j}{j}.
+  first by the row number \eqn{i}, then column number \eqn{j}.
   
   In \code{octahedron()}, \code{x} is a vector of twelve elements (again
   scalar argument is interpreted as the resistance of each resistor)
