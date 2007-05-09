@@ -2,18 +2,15 @@
 function (x.offset, y.offset, rows.of.resistors, cols.of.resistors, 
     give.pots = FALSE) 
 {
-    "get.1d.index" <- function(rownum, colnum, R, C) {
-        (colnum - 1) * R + rownum
-    }
     total.n.resistors <- rows.of.resistors * cols.of.resistors
     A <- makefullmatrix(rows.of.resistors, cols.of.resistors)
     current.in.x <- cols.of.resistors%/%2
     current.in.y <- rows.of.resistors%/%2
     current.out.x <- current.in.x + x.offset
     current.out.y <- current.in.y + y.offset
-    current.in.1d <- get.1d.index(current.in.y, current.in.x, 
+    current.in.1d <- .get.1d.index(current.in.y, current.in.x, 
         rows.of.resistors, cols.of.resistors)
-    current.out.1d <- get.1d.index(current.out.y, current.out.x, 
+    current.out.1d <- .get.1d.index(current.out.y, current.out.x, 
         rows.of.resistors, cols.of.resistors)
     if (give.pots) {
         return(matrix(resistance(A, current.in.1d, current.out.1d, 
@@ -91,6 +88,11 @@ function (x = 1)
     diag(out) <- -apply(out, 2, sum)
     return(out)
 }
+
+".get.1d.index" <- function(rownum, colnum, R, C)
+{
+    (colnum - 1) * R + rownum
+}
 "icosahedron" <-
 function (x = 1) 
 {
@@ -115,24 +117,53 @@ function (n, x = 1, y = 1, z = NULL)
     diag(out) <- -apply(out, 2, sum)
     out
 }
+
 "makefullmatrix" <-
-function (R, C) 
+function (R, C)
 {
-    "get.1d.index" <- function(rownum, colnum, R, C) {
-        (colnum - 1) * R + rownum
+    RC <- R*C
+    out <- diag(4, nrow = RC)
+    diagdist <- row(out) - col(out)
+    
+    out[diagdist == +1] <- -1
+    out[diagdist == -1] <- -1
+    out[diagdist == +R] <- -1
+    out[diagdist == -R] <- -1
+    out[diagdist == +RC - R] <- -1  
+    out[diagdist == -RC + R] <- -1
+    out[1 , RC] <- -1
+    out[RC,  1] <- -1
+    
+    return(out)
+  
+}
+
+"makefullmatrix_strict" <- function(R,C, toroidal)
+{
+    RC <- R*C
+    jj <- as.vector(matrix(seq_len(RC),R,C)[-R,])
+    iv <- cbind(jj,jj+1)         # interior vertical lines
+      
+    jj <- as.vector(matrix(seq_len(RC),R,C)[,-C])
+    ih <- cbind(jj,jj+R)         # interior horizontal lines
+    index <- rbind(iv,ih)
+    if(toroidal){
+      jj <- seq(from=1 , by=R , len=C)
+      wv <- cbind(jj,jj+R-1)         # wrapped vertical lines
+
+      jj <- seq_len(R)
+      wh <- cbind(jj,jj+RC-R)         # wrapped horizontal lines
+
+      index <- rbind(index , wv , wh)
     }
-    out <- diag(4, nrow = R * C)
-    jj <- row(out) - col(out)
-    out[jj == +1] <- -1
-    out[jj == -1] <- -1
-    out[jj == +R] <- -1
-    out[jj == -R] <- -1
-    out[jj == +R * C - R] <- -1
-    out[jj == -R * C + R] <- -1
-    out[1, R * C] <- -1
-    out[R * C, 1] <- -1
+    out <- matrix(0,RC,RC)
+    out[rbind(index,index[,2:1])] <- -1
+    diag(out) <- -rowSums(out)
     return(out)
 }
+    
+
+      
 "octahedron" <-
 function (x = 1) 
 {

@@ -42,23 +42,18 @@ circuit(L, v, currents=0, use.inverse=FALSE, give.internal=FALSE)
 \value{
   Depending on the value of Boolean argument \code{give.internal},
   return a list of either 2 or 4 elements:
-
-  {\bf potentials: }{A vector of potentials.  Note that the potentials of the
-      nodes whose potential was specified by input argument \code{v}
-      retain their original potentials; symbolically
-      \code{all(potentials[!is.na(v)] == v[!is.na(v)])}}
-
-    {\bf currents: }{Vector of currents required to maintain the system
-      with the potentials specified by input argument \code{v}}
-
-    {\bf internal.currents: }{Matrix showing current flow from node to
-      node.  Element \code{[i,j]} shows current flow from node \code{i} to
-      node \code{j}.  This and the next two elements only supplied if
-      argument \code{give.internal} is \code{TRUE}}
-
-    {\bf power: }{The power dissipated at each edge}
-
-    {\bf total.power: }{Total power dissipated over the resistor network}
+  \item{potentials}{A vector of potentials.  Note that the potentials of the
+    nodes whose potential was specified by input argument \code{v}
+    retain their original potentials; symbolically
+    \code{all(potentials[!is.na(v)] == v[!is.na(v)])}}
+  \item{currents}{Vector of currents required to maintain the system
+    with the potentials specified by input argument \code{v}}
+  \item{internal.currents}{Matrix showing current flow from node to
+    node.  Element \code{[i,j]} shows current flow from node \code{i} to
+    node \code{j}.  This and the next two elements only supplied if
+    argument \code{give.internal} is \code{TRUE}}
+  \item{power}{The power dissipated at each edge}
+  \item{total.power}{Total power dissipated over the resistor network}
 }
 \author{Robin K. S. Hankin}
 \note{
