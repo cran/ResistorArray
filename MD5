@@ -1,7 +1,7 @@
-ff6588fab04111670a7d7acc20aba55d *DESCRIPTION
-9fdfeb11f7ddba6f3aab9aaa6b1ac5dd *NAMESPACE
-8458f3d1b9b1ff26f5ad0af44b54bb79 *R/ResistorArray.R
-0b1c0f2fb3c89b23f366abd9f03b8ab2 *data/SquaredSquare.R
+dc16ed1def01f795ec8fb357f7b152d6 *DESCRIPTION
+24e0759c8c524c401007701cf01bd97d *NAMESPACE
+8716f554a885c232f2c3027b9744a250 *R/ResistorArray.R
+902de3f39c76f0b958b542bcc29f95d2 *data/SquaredSquare.rda
 88e1e8b41870bfad27b6c5b4bf0fc45c *man/ResistorArray-package.Rd
 3a3171f7a0e239b67a74d16830c01cf0 *man/SquaredSquare.Rd
 0649cba8806ac568e758e4c832927e82 *man/Wu.Rd
@@ -9,7 +9,7 @@ a185ccf1f54bfe66e5e7c42c4c7fabd5 *man/array.resistance.Rd
 5f8de668643c6cd90ab2a0a85d413406 *man/circuit.Rd
 7f65b29a1e683efac4943f67de15ebdd *man/cube.Rd
 3f00e02b5c51b3278cde02f85d2c66b3 *man/currents.Rd
-96af01ad556543ed5bf09ac24f5c50dc *man/hypercube.Rd
+2541a27954f74a904207caeb3eacd382 *man/hypercube.Rd
 20bd36c8b9c91320830a88b037efe4e5 *man/ladder.Rd
 bcc50cc87a3bb7207b0345161a4ac662 *man/makefullmatrix.Rd
 6cab679977a88a305f506e598f6d855b *man/platonic.Rd

@@ -1,6 +1,7 @@
 \name{hypercube}
 \alias{hypercube}
-\title{Conductance matrix of a hypercube}
+\concept{Boolean hypercube}
+\title{Conductance matrix of a Boolean hypercube}
 \description{
   Returns the conductance matrix of an n-dimensional hypercube
 }
@@ -23,8 +24,14 @@ hypercube(n)
   returned by \code{cube()} (which uses Maple's scheme).
 }
 \seealso{\code{\link{cube}}}
+\references{
+  \url{http://f2.org/maths/resnet/}
+}
 \examples{
 hypercube(4)
+
+resistance(hypercube(5),1,32)  # cf exact answer of 8/15 
+resistance(hypercube(5),1,2)   # cf exact answer of n <- 5; (2^n-1)/(n*2^(n-1))=31/80
 
 }
 \keyword{math}
