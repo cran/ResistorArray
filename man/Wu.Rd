@@ -26,7 +26,7 @@ Wu(L)
 \author{Robin K. S. Hankin}
 \note{
     In the function, the sum is not from 2 to \code{n} as in Wu, but
-    from 1 to \eqn{n-1}{n-1}, because \code{eigen()}  orders the
+    from 1 to \eqn{n-1}, because \code{eigen()}  orders the
     eigenvalues from largest to smallest, not smallest to largest.
 }
 \seealso{\code{\link{resistance}}}

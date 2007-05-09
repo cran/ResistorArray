@@ -15,16 +15,16 @@ array.resistance(x.offset, y.offset, rows.of.resistors, cols.of.resistors, give.
 }
 \arguments{
   \item{x.offset}{Earthed node is at \eqn{(0,0)}{(0,0)}, second node is at
-    \code{(x.offset, y.offset)}.}
+    \code{(x.offset, y.offset)}}
   \item{y.offset}{Earthed node is at \eqn{(0,0)}{(0,0)}, second node is at
-    \code{(x.offset, y.offset)}.}
+    \code{(x.offset, y.offset)}}
   \item{rows.of.resistors}{Number of rows of resistors in the network
-    (positive integer).}
+    (positive integer)}
   \item{cols.of.resistors}{Number of columns of resistors in the network
-    (positive integer).}
+    (positive integer)}
   \item{give.pots}{Boolean, with \code{TRUE} meaning to return a matrix
     of potentials of the electrical nodes, and \code{FALSE} meaning to
-    return the resistance between the origin and the current input node.}
+    return the resistance between the origin and the current input node}
 }
 \details{
 Note that the electrical network is effectively toroidal.

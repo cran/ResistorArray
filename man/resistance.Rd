@@ -48,21 +48,25 @@ resistance(A, earth.node, input.node, current.input.vector=NULL, give.pots = FAL
  
 \seealso{\code{\link{array.resistance}}}
 \references{
-
-  B. Bollob\'{a}s, 1998.  \dQuote{Modern Graph Theory}.  Springer.
-  
-  F. Y. Wu, 2004.  \dQuote{Theory of resistor networks: the two point
-    resistance}, Journal of Physics A, volume 37, pp6653-6673
-
-  G. Venezian 1994. \dQuote{On the resistance between two points on a grid},
-  American Journal of Physics, volume 62, number 11, pp1000-1004.
-
-  J. Cserti 2000.  \dQuote{Application of the lattice Green's function
-    for calculating the resistance of an infinte network of resistors},
-  American Journal of Physics, volume 68, number 10, p896-906
-
-  D. Atkinson and F. J. van Steenwijk 1999.  \dQuote{Infinite resistive
-  lattices}, American Journal of Physics, volume 67, number 6, pp486-492
+  \itemize{
+    \item B. Bollob\'{a}s, 1998.  \emph{Modern Graph Theory}.  Springer.
+    
+    \item F. Y. Wu, 2004.  \dQuote{Theory of resistor networks: the two
+      point resistance}, \emph{Journal of Physics A}, volume 37, pp6653-6673
+    
+    \item G. Venezian 1994. \dQuote{On the resistance between two points
+      on a grid}, \emph{American Journal of Physics}, volume 62, number 11,
+    pp1000-1004.
+    
+    \item J. Cserti 2000.  \dQuote{Application of the lattice Green's
+      function for calculating the resistance of an infinte network of
+      resistors}, \emph{American Journal of Physics}, volume 68, number 10,
+    p896-906
+    
+    \item D. Atkinson and F. J. van Steenwijk 1999.  \dQuote{Infinite
+      resistive lattices}, \emph{American Journal of Physics}, volume 67,
+    number 6, pp486-492
+    }
 }
 \examples{
   resistance(cube(),earth.node=1, input.node=7) #known to be 5/6 ohm

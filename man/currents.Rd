@@ -18,7 +18,7 @@ currents.matrix(L, earth.node, input.node)
     notional one Amp)}
 }
 \details{
-  The methods used by the two functions are different; see manpage for
+  The methods used by the two functions are different; see documentation for
   \code{resistance()} for further details on input args 2 and 3
 }
 \value{

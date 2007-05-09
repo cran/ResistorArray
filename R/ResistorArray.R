@@ -105,10 +105,11 @@ function (n, x = 1, y = 1, z = NULL)
 {
     out <- matrix(0, n, n)
     jj.series <- rbind(cbind(1, 2:n), cbind(2:(n - 1), 3:n))
-    out[jj.series[1:(n - 1), ]] <- -1/x
-    out[jj.series[n:(2 * n - 3), ]] <- -1/y
-    if (!is.null(z)) {
-        out[jj.series] <- -1/z
+    if(is.null(z)){
+      out[jj.series[1:(n - 1), ]] <- -1/x
+      out[jj.series[n:(2 * n - 3), ]] <- -1/y
+    } else {
+      out[jj.series] <- -1/z
     }
     out <- out + t(out)
     diag(out) <- -apply(out, 2, sum)

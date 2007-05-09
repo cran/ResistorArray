@@ -61,14 +61,13 @@ icosahedron(x=1)
   one of two ohms; the two-ohm resistor is one of the ones touching the
   earthed node.
 
-  To do this, first draw a tetrahedron with
-  four nodes.  Then say we want the resistance between node 1 and node
-  3; thus edge 1-3 is the infinite one.  
-  \code{platonic("tetrahedron")} gives us the order of the edges: 12,
-  13, 14, 23, 24, 34.  Thus the conductance matrix is given by
-  \code{jj <- tetrahedron(c(2,Inf,1,1,1,1))} and the resistance is given
-  by \code{resistance(jj,1,3)} [compare the analytical answer of 117/99
-  ohms].
+  To do this, first draw a tetrahedron with four nodes.  Then say we
+  want the resistance between node 1 and node 3; thus edge 1-3 is the
+  infinite one.  \code{platonic("tetrahedron")} gives us the order of
+  the edges: 12, 13, 14, 23, 24, 34.  Thus the conductance matrix is
+  given by \code{jj <- tetrahedron(c(2,Inf,1,1,1,1))} and the resistance
+  is given by \code{resistance(jj,1,3)} [compare the analytical answer
+  of 117/99 ohms].
 
 
 }

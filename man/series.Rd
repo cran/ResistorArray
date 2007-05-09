@@ -11,10 +11,9 @@ series(x)
   \item{x}{The resistances of the resistors.}
 }
 \details{
-\strong{Note:} if \code{length(x)=n}, the function returns a
-conductance matrix of size \code{n+1} by \code{n+1}, because \code{n}
-resistors in series have \code{n+1} nodes to consider.
-
+  \strong{Note:} if \code{length(x)=n}, the function returns a
+  conductance matrix of size \code{n+1} by \code{n+1}, because \code{n}
+  resistors in series have \code{n+1} nodes to consider.
 }
 \author{Robin K. S. Hankin}
 \seealso{\code{\link{cube}}}

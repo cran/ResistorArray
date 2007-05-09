@@ -14,7 +14,7 @@ platonic(a)
 }
 \details{
   Returns a two column matrix \code{a}, the rows of which show the two
-  vertices of an edge.  Because resistance is symmetric, only
+  vertices of an edge.  Only
   edges with \code{a[i,1]<i[i,2]} are included.
 
   For the dodecahedron and icosahedron, the nodes are numbered as per
