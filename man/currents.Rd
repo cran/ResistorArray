@@ -19,7 +19,7 @@ currents.matrix(L, earth.node, input.node)
 }
 \details{
   The methods used by the two functions are different; see manpage for
-  \code{resistance()} for further details on input args 2 and 3}
+  \code{resistance()} for further details on input args 2 and 3
 }
 \value{
 Function \code{currents()} returns a three column matrix, each row of
