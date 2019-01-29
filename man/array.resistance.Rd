@@ -11,7 +11,8 @@
   second is earthed.
 }
 \usage{
-array.resistance(x.offset, y.offset, rows.of.resistors, cols.of.resistors, give.pots = FALSE)
+array.resistance(x.offset, y.offset, rows.of.resistors,
+  cols.of.resistors, give.pots = FALSE)
 }
 \arguments{
   \item{x.offset}{Earthed node is at \eqn{(0,0)}{(0,0)}, second node is at
